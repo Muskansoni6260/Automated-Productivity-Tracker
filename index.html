@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated Productivity Tracker</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="top-header">
+    <div class="header-left">
+      <h1>Productivity Tracker</h1>
+      <p id="today-date">Stay focused. Stay consistent. You Nailed it</p>
+    </div>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <!-- ================= DASHBOARD ================= -->
+  <main class="dashboard">
+
+    <!-- ===== LEFT COLUMN ===== -->
+    <div class="column left">
+
+      <!-- Add Task -->
+      <section class="card">
+        <h2>Add Task</h2>
+        <form id="task-form" class="task-form">
+          <input type="text" id="task-input" placeholder="What do you want to do?" required />
+
+           <div class="row">
+            <select id="task-category" required> 
+              <option value="">Category</option>
+              <option>Study</option>
+              <option>Health</option>
+              <option>Personal</option>
+              <option>Career</option>
+            </select>
+
+            <select id="task-priority" required>
+              <option value="">Priority</option>
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+
+          <input type="date" id="task-due-date" required />
+          <button type="submit" class="primary-btn">Add Task</button>
+        </form>
+      </section>
+
+      <!-- Daily Goal -->
+      <section class="card">
+        <h2>Daily Goal 🎯</h2>
+        <form id="goal-form">
+          <input type="number" id="goal-input" placeholder="e.g. 3 tasks" min="1" required />
+          <button type="submit" class="secondary-btn">Set Goal</button>
+        </form>
+
+        <div class="goal-progress">
+          <span><strong id="goal-completed">0</strong> / <span id="goal-target">0</span> completed</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="goal-bar"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ===== CENTER COLUMN ===== -->
+    <div class="column center">
+
+      <!-- Tasks -->
+      <section class="card">
+        <h2>Your Tasks</h2>
+        <ul id="task-list" class="task-list">
+          <li class="empty-state">
+            📋 No tasks yet<br>
+            <small>Start small. Momentum builds fast 🚀</small>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Motivation -->
+      <section class="card motivation-card">
+        <h2>Daily Motivation 💡</h2>
+        <blockquote id="motivational-quote">
+          “Your future is created by what you do today, not tomorrow.”
+        </blockquote>
+      </section>
+
+    </div>
+
+    <!-- ===== RIGHT COLUMN ===== -->
+    <div class="column right">
+
+      <!-- Progress Stats -->
+      <section class="card">
+        <h2>Progress</h2>
+
+        <div class="stats">
+          <div class="stat-box">
+            <span id="daily-completed">0</span>
+            <small>Today</small>
+          </div>
+          <div class="stat-box">
+            <span id="weekly-percent">0%</span>
+            <small>Weekly</small>
+          </div>
+          <div class="stat-box">
+            <span id="streak-count">0 🔥</span>
+            <small>Streak</small>
+          </div>
+        </div>
+
+        <canvas id="progress-chart"></canvas>
+      </section>
+
+      <!-- Weekly Report -->
+      <section class="card">
+        <h2>Weekly Report 📊</h2>
+        <p>Tasks Completed: <strong id="weekly-tasks">0</strong></p>
+        <p>Best Day: <strong id="best-day">None</strong></p>
+        <p>Longest Streak: <strong id="longest-streak">0</strong></p>
+      </section>
+
+    </div>
+
+  </main>
+  <!-- <p id="debug-text">Hello</p> -->
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Productivity Tracker • Built with HTML, CSS & JS</p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
