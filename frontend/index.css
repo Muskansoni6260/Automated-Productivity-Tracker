@@ -49,32 +49,32 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--bg-gradient);
   color: var(--text-color);
   line-height: 1.6;
 }
 
 /* ================= HEADER ================= */
-header {
+.top-header {
   background: var(--header-bg);
   padding: 24px 32px;
   border-radius: 0 0 18px 18px;
-  box-shadow: 0 8px 30px rgba(161, 76, 76, 0.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
   position: relative;
 }
 
-header h1 {
+.top-header h1 {
   margin: 0;
   font-size: 32px;
-  font-weight: 650;
+  font-weight: 600;
   color: var(--primary);
 }
 
-header p {
+.top-header p {
   margin-top: 6px;
-  color: rgb(122, 71, 169);
   font-size: 14px;
+  color: var(--muted-text);
 }
 
 #theme-toggle {
@@ -96,22 +96,28 @@ main {
   padding: 32px;
   background: var(--main-bg);
   border-radius: 22px;
-  box-shadow: 0 20px 50px rgba(196, 124, 124, 0.12);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: 1fr 1.2fr 1fr;
   gap: 30px;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* ================= CARD ================= */
-section {
+.card {
   background: var(--section-bg);
   padding: 24px;
   border-radius: 18px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
-section:hover {
+.card:hover {
   transform: translateY(-2px);
 }
 
@@ -138,6 +144,12 @@ select:focus {
   border-color: var(--primary);
 }
 
+/* ================= ROW (Dropdown alignment) ================= */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
 /* ================= BUTTON ================= */
 button {
   padding: 10px 18px;
@@ -154,10 +166,17 @@ button:hover {
   opacity: 0.95;
 }
 
+.primary-btn {
+  background: var(--primary);
+}
+
+.secondary-btn {
+  background: var(--secondary);
+}
+
 /* ================= TASK FORM ================= */
 #task-form {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 12px;
 }
 
@@ -202,6 +221,44 @@ button:hover {
   border: var(--overdue-border);
 }
 
+/* ================= TASK LIST ================= */
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  background: var(--task-bg);
+  padding: 14px 16px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--low-priority);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 👇 ADD THIS HERE */
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-left div {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 /* ================= EMPTY STATE ================= */
 .empty-state {
   text-align: center;
@@ -210,7 +267,7 @@ button:hover {
 }
 
 /* ================= GOAL PROGRESS ================= */
-#goal-bar {
+.progress-bar {
   width: 100%;
   height: 14px;
   background: #e5e7eb;
@@ -219,9 +276,7 @@ button:hover {
   overflow: hidden;
 }
 
-#goal-bar::after {
-  content: '';
-  display: block;
+.progress-fill {
   height: 100%;
   width: 0%;
   background: var(--secondary);
@@ -229,30 +284,30 @@ button:hover {
 }
 
 /* ================= STATS ================= */
-#stats {
+.stats {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.stat-ring {
+.stat-box {
   text-align: center;
 }
 
-.stat-value {
+.stat-box span {
   font-size: 20px;
   font-weight: 600;
 }
 
-.stat-label {
+.stat-box small {
   font-size: 12px;
   color: var(--muted-text);
 }
 
 /* ================= CHART ================= */
 #progress-chart {
-  max-width: 100%;
-  height: 320px;
+  width: 100%;
+  height: 250px;
 }
 
 /* ================= FOOTER ================= */

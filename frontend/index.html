@@ -18,7 +18,7 @@
   <header class="top-header">
     <div class="header-left">
       <h1>Productivity Tracker</h1>
-      <p id="today-date">Stay focused. Stay consistent. You Nailed it</p>
+      <p id="today-date">Stay focused. Stay consistent. You nailed it</p>
     </div>
     <button id="theme-toggle">🌙</button>
   </header>
@@ -35,20 +35,20 @@
         <form id="task-form" class="task-form">
           <input type="text" id="task-input" placeholder="What do you want to do?" required />
 
-           <div class="row">
-            <select id="task-category" required> 
-              <option value="">Category</option>
-              <option>Study</option>
-              <option>Health</option>
-              <option>Personal</option>
-              <option>Career</option>
+          <div class="row">
+            <select id="task-category" required>
+              <option value="" disabled selected>Category</option>
+              <option value="Study">Study</option>
+              <option value="Health">Health</option>
+              <option value="Personal">Personal</option>
+              <option value="Career">Career</option>
             </select>
 
             <select id="task-priority" required>
-              <option value="">Priority</option>
-              <option>High</option>
-              <option>Medium</option>
-              <option>Low</option>
+              <option value="" disabled selected>Priority</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
             </select>
           </div>
 
@@ -135,8 +135,6 @@
     </div>
 
   </main>
-  <!-- <p id="debug-text">Hello</p> -->
-
 
   <!-- ================= FOOTER ================= -->
   <footer>
