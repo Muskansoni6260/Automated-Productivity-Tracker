@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // FETCH TASKS
     async function fetchTasksFromBackend() {
         try {
-            const res = await fetch("http://localhost:5000/api/tasks");
+            const res = await fetch("https://automated-productivity-tracker-production.up.railway.app/api/tasks");
             const data = await res.json();
 
             console.log("Fetched:", data);
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-        const res = await fetch("http://localhost:5000/api/tasks", {
+        const res = await fetch("https://automated-productivity-tracker-production.up.railway.app/api/tasks", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // DELETE
     async function deleteTask(id) {
-        await fetch(`http://localhost:5000/api/tasks/${id}`, {
+        await fetch(`https://automated-productivity-tracker-production.up.railway.app/api/tasks/${id}`, {
             method: "DELETE"
         });
         fetchTasksFromBackend();
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function toggleTaskCompletion(id) {
         const task = tasks.find(t => t.id === id);
 
-        await fetch(`http://localhost:5000/api/tasks/${id}`, {
+        await fetch(`https://automated-productivity-tracker-production.up.railway.app/api/tasks/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ completed: !task.completed })
